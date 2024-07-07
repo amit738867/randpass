@@ -1,17 +1,28 @@
+import React from 'react';
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import ExerciseDetail from './pages/ExerciseDetail';
+import Navbar from './components/NavBar';
+import Footer from './components/Footer';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
-    <>
-       <Button variant="contained">Text</Button>
-       <div className='h-60 w-44 bg-slate-600'>afdsafsdf</div>
-    </>
+    
+      <Box width="400px" sx={{width:{xl:'1488px'}}} m='auto'>
+       <Navbar />
+       <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/exercise/:id' element={<ExerciseDetail />} />
+       </Routes>
+       <Footer />
+      </Box>
+    
   )
 }
 
